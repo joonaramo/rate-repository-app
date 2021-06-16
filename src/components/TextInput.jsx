@@ -14,9 +14,12 @@ const styles = StyleSheet.create({
 });
 
 const TextInput = ({ style, error, ...props }) => {
-  const textInputStyle = [style];
+  const textInputStyle = {
+    ...styles.input,
+    borderColor: error && theme.colors.error,
+  };
 
-  return <NativeTextInput style={styles.input} {...props} />;
+  return <NativeTextInput style={textInputStyle} {...props} />;
 };
 
 export default TextInput;
