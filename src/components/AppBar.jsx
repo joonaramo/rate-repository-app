@@ -72,18 +72,32 @@ const AppBar = () => {
             </Pressable>
           </>
         ) : (
-          <Pressable style={styles.tab}>
-            <Link to='/signin'>
-              <Text
-                color='white'
-                fontSize='subheading'
-                fontWeight='bold'
-                style={styles.text}
-              >
-                Sign In
-              </Text>
-            </Link>
-          </Pressable>
+          <>
+            <Pressable style={styles.tab}>
+              <Link to='/signin'>
+                <Text
+                  color='white'
+                  fontSize='subheading'
+                  fontWeight='bold'
+                  style={styles.text}
+                >
+                  Sign In
+                </Text>
+              </Link>
+            </Pressable>
+            <Pressable style={styles.tab}>
+              <Link to='/signup'>
+                <Text
+                  color='white'
+                  fontSize='subheading'
+                  fontWeight='bold'
+                  style={styles.text}
+                >
+                  Sign Up
+                </Text>
+              </Link>
+            </Pressable>
+          </>
         )}
       </ScrollView>
     </View>
