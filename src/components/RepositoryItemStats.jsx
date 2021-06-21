@@ -30,25 +30,45 @@ const RepositoryItemStats = ({
   return (
     <View style={styles.container}>
       <View style={styles.statsText}>
-        <Text style={styles.number} fontSize='subheading' fontWeight='bold'>
+        <Text
+          style={styles.number}
+          testID='stargazersCount'
+          fontSize='subheading'
+          fontWeight='bold'
+        >
           {formatNumber(stargazersCount)}
         </Text>
         <Text color='secondaryText'>Stars</Text>
       </View>
       <View style={styles.statsText}>
-        <Text style={styles.number} fontSize='subheading' fontWeight='bold'>
+        <Text
+          style={styles.number}
+          testID='forksCount'
+          fontSize='subheading'
+          fontWeight='bold'
+        >
           {formatNumber(forksCount)}
         </Text>
         <Text color='secondaryText'>Forks</Text>
       </View>
       <View style={styles.statsText}>
-        <Text style={styles.number} fontSize='subheading' fontWeight='bold'>
+        <Text
+          style={styles.number}
+          testID='reviewCount'
+          fontSize='subheading'
+          fontWeight='bold'
+        >
           {formatNumber(reviewCount)}
         </Text>
         <Text color='secondaryText'>Reviews</Text>
       </View>
       <View style={styles.statsText}>
-        <Text style={styles.number} fontSize='subheading' fontWeight='bold'>
+        <Text
+          style={styles.number}
+          testID='ratingAverage'
+          fontSize='subheading'
+          fontWeight='bold'
+        >
           {formatNumber(ratingAverage)}
         </Text>
         <Text color='secondaryText'>Rating</Text>

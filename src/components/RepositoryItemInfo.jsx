@@ -41,16 +41,26 @@ const RepositoryItemInfo = ({
         <Image style={styles.image} source={{ uri: ownerAvatarUrl }}></Image>
       </View>
       <View style={styles.infoContainer}>
-        <Text style={styles.infoText} fontSize='subheading' fontWeight='bold'>
+        <Text
+          testID='fullName'
+          style={styles.infoText}
+          fontSize='subheading'
+          fontWeight='bold'
+        >
           {fullName}
         </Text>
-        <Text color='textSecondary' style={styles.infoText}>
+        <Text
+          testID='description'
+          color='textSecondary'
+          style={styles.infoText}
+        >
           {description}
         </Text>
         <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
           <Text
             color='white'
             backgroundColor='primary'
+            testID='languageTag'
             style={styles.languageTag}
           >
             {language}

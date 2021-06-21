@@ -30,6 +30,43 @@ const styles = StyleSheet.create({
   },
 });
 
+export const SignInContainer = ({ onSubmit }) => {
+  return (
+    <View style={styles.container}>
+      <Formik
+        validationSchema={validationSchema}
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+      >
+        {({ handleSubmit }) => (
+          <>
+            <FormikTextInput
+              testID='usernameField'
+              name='username'
+              placeholder='Username'
+            />
+            <FormikTextInput
+              testID='passwordField'
+              name='password'
+              placeholder='Password'
+              secureTextEntry
+            />
+            <Pressable
+              testID='submitButton'
+              style={styles.button}
+              onPress={handleSubmit}
+            >
+              <Text fontWeight='bold' color='white'>
+                Sign In
+              </Text>
+            </Pressable>
+          </>
+        )}
+      </Formik>
+    </View>
+  );
+};
+
 const SignIn = () => {
   const [signIn] = useSignIn();
   const history = useHistory();
@@ -42,31 +79,7 @@ const SignIn = () => {
       console.log(e);
     }
   };
-  return (
-    <View style={styles.container}>
-      <Formik
-        validationSchema={validationSchema}
-        initialValues={initialValues}
-        onSubmit={onSubmit}
-      >
-        {({ handleSubmit }) => (
-          <>
-            <FormikTextInput name='username' placeholder='Username' />
-            <FormikTextInput
-              name='password'
-              placeholder='Password'
-              secureTextEntry
-            />
-            <Pressable style={styles.button} onPress={handleSubmit}>
-              <Text fontWeight='bold' color='white'>
-                Sign In
-              </Text>
-            </Pressable>
-          </>
-        )}
-      </Formik>
-    </View>
-  );
+  return <SignInContainer onSubmit={onSubmit} />;
 };
 
 export default SignIn;
