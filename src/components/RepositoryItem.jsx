@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 14,
     backgroundColor: 'white',
+    zIndex: 1,
   },
   button: {
     backgroundColor: theme.colors.primary,
