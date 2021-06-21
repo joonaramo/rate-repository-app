@@ -45,18 +45,34 @@ const AppBar = () => {
             </Text>
           </Link>
         </Pressable>
-        <Pressable style={styles.tab}>
-          {authorizedUser ? (
-            <Text
-              color='white'
-              fontSize='subheading'
-              fontWeight='bold'
-              style={styles.text}
-              onPress={() => signOut()}
-            >
-              Sign Out
-            </Text>
-          ) : (
+        {authorizedUser ? (
+          <>
+            <Pressable style={styles.tab}>
+              <Link to='/review'>
+                <Text
+                  color='white'
+                  fontSize='subheading'
+                  fontWeight='bold'
+                  style={styles.text}
+                >
+                  Create a Review
+                </Text>
+              </Link>
+            </Pressable>
+            <Pressable style={styles.tab}>
+              <Text
+                color='white'
+                fontSize='subheading'
+                fontWeight='bold'
+                style={styles.text}
+                onPress={() => signOut()}
+              >
+                Sign Out
+              </Text>
+            </Pressable>
+          </>
+        ) : (
+          <Pressable style={styles.tab}>
             <Link to='/signin'>
               <Text
                 color='white'
@@ -67,8 +83,8 @@ const AppBar = () => {
                 Sign In
               </Text>
             </Link>
-          )}
-        </Pressable>
+          </Pressable>
+        )}
       </ScrollView>
     </View>
   );

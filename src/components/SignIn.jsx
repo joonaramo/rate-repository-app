@@ -10,6 +10,7 @@ import useSignIn from '../hooks/useSignIn';
 
 const initialValues = {
   username: '',
+  password: '',
 };
 
 const validationSchema = yup.object().shape({
@@ -40,22 +41,13 @@ export const SignInContainer = ({ onSubmit }) => {
       >
         {({ handleSubmit }) => (
           <>
+            <FormikTextInput name='username' placeholder='Username' />
             <FormikTextInput
-              testID='usernameField'
-              name='username'
-              placeholder='Username'
-            />
-            <FormikTextInput
-              testID='passwordField'
               name='password'
               placeholder='Password'
               secureTextEntry
             />
-            <Pressable
-              testID='submitButton'
-              style={styles.button}
-              onPress={handleSubmit}
-            >
+            <Pressable style={styles.button} onPress={handleSubmit}>
               <Text fontWeight='bold' color='white'>
                 Sign In
               </Text>
