@@ -37,7 +37,7 @@ class RepositoryListContainer extends Component {
   };
 
   render() {
-    const { repositories } = this.props;
+    const { repositories, onEndReach } = this.props;
     const repositoryNodes = repositories
       ? repositories.edges.map((edge) => edge.node)
       : [];
@@ -48,6 +48,8 @@ class RepositoryListContainer extends Component {
         ListHeaderComponent={this.renderHeader}
         renderItem={(item) => this.renderItem(item)}
         keyExtractor={(item) => item.id}
+        onEndReached={onEndReach}
+        onEndReachedThreshold={0.5}
       />
     );
   }
@@ -58,15 +60,20 @@ const RepositoryList = () => {
   const [searchKeyword, setSearchKeyword] = useState('');
   const orderBy = order.split(':')[0];
   const orderDirection = order.split(':')[1];
-  const { repositories } = useRepositories(
+  const { repositories, fetchMore } = useRepositories(
     orderBy,
     orderDirection,
-    searchKeyword
+    searchKeyword,
+    8
   );
-
   const history = useHistory();
+
   const handlePress = (item) => {
     history.push(`/repository/${item.id}`);
+  };
+
+  const onEndReach = () => {
+    fetchMore();
   };
 
   return (
@@ -76,6 +83,7 @@ const RepositoryList = () => {
       searchKeyword={searchKeyword}
       setSearchKeyword={setSearchKeyword}
       handlePress={handlePress}
+      onEndReach={onEndReach}
       repositories={repositories}
     />
   );
